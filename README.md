@@ -1,6 +1,6 @@
-# (Mask the paper name for blind review purpose
+# CLUSTERFUSION: Hybrid Clustering with Embedding Guidance and LLM Adaptation
 
-(Mask the paper name for blind review purpose
+This is the repo the paper: CLUSTERFUSION: Hybrid Clustering with Embedding Guidance and LLM Adaptation
 
 datasets/
 
