@@ -1,21 +1,74 @@
 # CLUSTERFUSION: Hybrid Clustering with Embedding Guidance and LLM Adaptation
 
-This is the repo the paper: CLUSTERFUSION: Hybrid Clustering with Embedding Guidance and LLM Adaptation
+This repository contains datasets and experimental results for the paper **"CLUSTERFUSION: Hybrid Clustering with Embedding Guidance and LLM Adaptation"**.
 
-datasets/
+**Paper link**: arXiv link to be added soon.
 
-    - clinicSmallCleaned_4472samples_150topics.csv -> this is the manual cleaned version of the original clinic data from Zhang et al. (2023). We removed the mis-labelled records documented in clinicSmall_correction_notes.csv
+---
 
-    - clinicSmall_correction_notes.csv -> documented the mis-labelled records for the original clinic data.
+## Datasets
 
-    - codex_406samples_26topics.csv -> data augmentation: remove sensitive information and split the multi-topic reviews to multiple 1 topic review. Only maintain those comments regarding the announced product and its announcement, remove the follow-up discussion under a specific comment. Remove duplicate results.
+This repository includes the following datasets:
 
-results/
+### Benchmark Datasets
+- **Bank77**: Banking intent classification dataset (obtain from original source)
+- **CLINC**: Intent classification dataset (obtain from original source)  
+- **Tweet**: Social media clustering dataset (obtain from original source)
 
-    Under each dataset folder, there are 5 folders:
-    - sorted_gt: Comments were sorted by ground-truth topics before being passed into the topic extractor.
-    - unsorted: Comments were randomly shuffled before being passed into the topic extractor.
-    - sorted_pred_K-means: Comments were sorted by predicted clusters from K-means before being passed into the topic extractor.
-    - sorted_pred_cos: Comments were sorted by cosine similarity of their embeddings to the first comment, then passed into the topic extractor.
-    - sorted_pred_euc: Comments were sorted by Euclidean distance of their embeddings to the first comment, then passed into the topic extractor.
+*Note: Please refer to the original papers for these benchmark datasets and their licensing terms.*
 
+### Cleaned CLINC Dataset
+- **File**: `datasets/clinicSmallCleaned_4472samples_150topics.csv`
+- **Description**: Manually cleaned version of the original CLINC data. We identified and removed mislabeled records to improve data quality.
+- **Correction Notes**: `datasets/clinicSmall_correction_notes.csv` documents all mislabeled records found in the original dataset.
+
+### OpenAI Codex Dataset (New)
+- **File**: `datasets/codex_406samples_26topics.csv`  
+- **Description**: YouTube comments collected and labelled from the [OpenAI Codex demo video](https://www.youtube.com/watch?v=FUq9qRwrDrI) (collected before June 2025)
+- **Data Processing**:
+  - Removed sensitive information
+  - Split multi-topic reviews into single-topic comments
+  - Retained only comments about the announced product and its announcement
+  - Removed follow-up discussions under specific comments
+  - Removed duplicate entries
+- **License**: CC BY 4.0
+
+---
+
+## Data Format
+
+Each dataset CSV file contains the following columns:
+- `task`: Dataset name (if applicable)
+- `comment`: Raw text comment/document
+- `topic`: Ground-truth topic/cluster label
+- `pred_topic`: Predicted topic (in result files only)
+
+---
+
+## Results
+
+The `results/` folder contains experimental outputs for each dataset. Each dataset has 5 subfolders corresponding to different input sorting strategies:
+
+### Sorting Methods
+- **`sorted_gt/`**: ClusterFusion with oracle ordering (sorted by ground-truth topics)
+- **`sorted_pred_cos/`**: ClusterFusion sorted by cosine similarity to the first comment in the sample
+- **`sorted_pred_euc/`**: ClusterFusion sorted by Euclidean distance to the first comment in the sample
+- **`sorted_pred_K-means/`**: ClusterFusion sorted by K-means predicted clusters
+- **`unsorted/`**: ClusterFusion with random input order. For the unsorted version, we randomized the input data. This is important since the CLINIC dataset is originally sorted by ground-truth topics. We've randomized all datasets to remove the built-in ordering that comes with the data.
+
+### Result Files
+- Each subfolder contains 5 CSV files (`_1.csv` through `_5.csv`), representing 5 independent experimental runs under the same configuration
+- Each result file contains the predicted topics (`pred_topic` column) alongside the original data
+- For evaluation metrics and methodology details, please refer to the paper
+
+---
+
+## Citation
+
+*Citation information will be updated upon arXiv publication.*
+
+---
+
+## Contact
+
+For questions or issues regarding this repository, please open an issue or refer to the paper for author contact information.
