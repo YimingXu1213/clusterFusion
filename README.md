@@ -54,7 +54,7 @@ The `results/` folder contains experimental outputs for each dataset. Each datas
 - **`sorted_pred_cos/`**: ClusterFusion sorted by cosine similarity to the first comment in the sample
 - **`sorted_pred_euc/`**: ClusterFusion sorted by Euclidean distance to the first comment in the sample
 - **`sorted_pred_K-means/`**: ClusterFusion sorted by K-means predicted clusters
-- **`unsorted/`**: ClusterFusion with random input order. For the unsorted version, we randomized the input data. This is important since the CLINIC dataset is originally sorted by ground-truth topics. We've randomized all datasets to remove the built-in ordering that comes with the data.
+- **`unsorted/`**: ClusterFusion without sorting. For the unsorted version, we randomized the input data. This is important since the CLINIC dataset is originally sorted by ground-truth topics. We've randomized all datasets to remove the built-in ordering that comes with the data.
 
 ### Result Files
 - Each subfolder contains 5 CSV files (`_1.csv` through `_5.csv`), representing 5 independent experimental runs under the same configuration
