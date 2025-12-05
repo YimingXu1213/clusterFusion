@@ -2,7 +2,7 @@
 
 This repository contains datasets and experimental results for the paper **"CLUSTERFUSION: Hybrid Clustering with Embedding Guidance and LLM Adaptation"**.
 
-**Paper link**: arXiv link to be added soon.
+**Paper link**: https://arxiv.org/abs/2512.04350
 
 ---
 
@@ -64,9 +64,17 @@ The `results/` folder contains experimental outputs for each dataset. Each datas
 ---
 
 ## Citation
-
-*Citation information will be updated upon arXiv publication.*
-
+```
+@misc{xu2025clusterfusionhybridclusteringembedding,
+      title={ClusterFusion: Hybrid Clustering with Embedding Guidance and LLM Adaptation}, 
+      author={Yiming Xu and Yuan Yuan and Vijay Viswanathan and Graham Neubig},
+      year={2025},
+      eprint={2512.04350},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2512.04350}, 
+}
+```
 ---
 
 ## Contact
